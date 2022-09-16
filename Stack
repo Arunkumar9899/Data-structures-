@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<process.h>
+#define SIZE 5
+
+int top=-1;
+int stk[SIZE];
+void push()
+{
+    int ele;
+    printf("enter the element");
+    scanf("%d",&ele);
+    if(top==SIZE-1)
+        printf("the stack is full");
+    else
+    {
+
+        top=top+1;
+        stk[top]=ele;
+    }
+}
+void pop()
+{
+    if(top==-1)
+        printf("the stack is empty");
+    else
+     {
+
+        ele=stk[top];
+        top=top-1;
+     }
+    printf("the deleted element %d",ele);
+}
+void peak()
+{
+    if(top==-1)
+        printf("the stack is empty");
+    else
+        printf("the peak value in the stack %d",stk[top]);
+}
+void display()
+{
+    int i;
+    if(top==-1)
+        printf("stack is empty");
+    else
+        for(i=top;i>=0;i--)
+        {
+            printf("%d  ",stk[i]);
+        }
+}
+void main()
+{
+    int ch;
+    do
+    {
+    printf("\n1.push\n2.pop\n3.peak\n4.display\n5.exit");
+    printf("enter the choice");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1:
+            push();
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            peak();
+            break;
+        case 4:
+            display();
+            break;
+        case 5:
+            exit(0);
+        default:
+            printf("\n wrong input");
+    }
+    } while(ch>=0 && ch<=5);
+}
+
